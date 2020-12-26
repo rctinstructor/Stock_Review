@@ -1,0 +1,32 @@
+{% extends 'layout.html' %} {% block title %}
+<!-- Title-->
+<title>Home</title>
+{% endblock %}
+
+<!-- Content-->
+{% block content %}
+<h3 class="mt-5 text-center">Stocks' application review</h3>
+
+<div class="row mt-5">
+  {% for x in stock %}
+  <div class="col-sm">
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">{{ x.name }}</h5>
+
+        {% if x.star > 3 %}
+        <span class="badge bg-success">Recommended</span>
+
+        {% else %}
+        <span class="badge bg-danger">Take care</span>
+        {% endif %}
+
+        <p class="card-text">{{ x.description }}</p>
+        <a href="#" class="btn btn-primary">{{ x.Evaluation }}</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
